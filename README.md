@@ -3,7 +3,7 @@
 <table>
   <tr>
     <td align="center">
-      <a href="#">
+      <a href="https://www.linkedin.com/in/pedro-moreira-90aab9262/">
         <img src="https://github.com/user-attachments/assets/2bb97685-8584-4e4e-88db-51650e6ac599" width="100px;" alt="Fernanda Kipper Profile Picture"/><br>
         <sub>
           <b>Pedro Augusto</b>
@@ -11,7 +11,7 @@
       </a>
     </td>
     <td align="center">
-      <a href="#">
+      <a href="https://www.linkedin.com/in/william-gabriel-666175253/">
         <img src="https://github.com/user-attachments/assets/914c77e3-61aa-420b-a6f2-36149886983a" width="100px;" alt="Elon Musk Picture"/><br>
         <sub>
           <b>William Gabriel</b>
