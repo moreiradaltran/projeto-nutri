@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>NUTRIÇÃO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&family=Kanit:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-size: 12px;
+            background-color: black;
+            color: white;
+            font-family: 'Overpass', sans-serif;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #ativo {
+            background: #191919;
+            border-radius: 10px;
+            padding: 2em 2em;
+            margin: 0 auto;
+            margin-top: 80px;
+            margin-bottom: 80px;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        header {
+            display: flex;
+            justify-content: center;
+        }
+
+        .estrela {
+            background: #363636;
+            border: none;
+            border-radius: 50%;
+            padding: 3px 6px;
+        }
+
+        .titulo {
+            margin-bottom: 10px;
+            text-align: center;
+            font-family: 'Kanit', sans-serif;
+            font-size: 24px;
+            color: white;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            color: white;
+            display: block;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            background-color: hsl(25, 97%, 53%);
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: white;
+        }
+
+        #feedback-section {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+        }
+
+        figure {
+            border: thin #c0c0c0 solid;
+            display: flex;
+            flex-direction: column;
+            padding: 5px;
+            max-width: 220px;
+            margin: 0 auto;
+        }
+
+        figcaption {
+            background-color: #222;
+            color: #fff;
+            font: italic smaller sans-serif;
+            padding: 3px;
+            text-align: center;
+        }
+
+        #notas {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .nota-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .nota {
+            font-size: 0; /* Remove texto dentro dos botões */
+            background: #363636;
+            border: none;
+            border-radius: 50%;
+            color: white;
+            padding: 0.5em; /* Tamanho reduzido */
+            margin: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px; /* Definir largura do botão */
+            height: 50px; /* Definir altura do botão */
+        }
+
+        .nota img {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 50%;
+        }
+
+        .nota-label {
+            margin-top: 5px;
+            font-size: 12px;
+            color: #C0C0C0;
+            text-align: center;
+        }
+
+        #resultado {
+            color: hsl(25, 97%, 53%);
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .enviar {
+            background: hsl(25, 97%, 53%);
+            border: none;
+            border-bottom: #cccccc solid 2px;
+            border-radius: 20px;
+            color: white;
+            padding: 0.8em 2em;
+            text-transform: uppercase;
+            margin: 20px 0;
+            text-decoration: none;
+        }
+
+        .enviar:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s;
+            background-color: white;
+            color: #d75413;
+            border-bottom: #d75413 solid 3px;
+        }
+
+        .nota:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s;
+            background-color: hsl(217, 12%, 63%);
+            color: white;
+            border-bottom: white solid 2px;
+        }
+
+        .nota:active {
+            background-color: hsl(25, 97%, 53%);
+        }
+
+        @media (max-width: 600px) {
+            #ativo {
+                padding: 1em;
+                margin-top: 40px;
+                margin-bottom: 40px;
+            }
+
+            .titulo {
+                font-size: 20px;
+            }
+
+            .nota {
+                width: 40px; /* Tamanho menor para dispositivos móveis */
+                height: 40px;
+                padding: 0.5em; /* Ajustar padding para tamanhos menores */
+            }
+
+            .nota img {
+                max-width: 70%;
+                max-height: 70%;
+            }
+
+            #resultado {
+                font-size: 12px;
+            }
+
+            .enviar {
+                padding: 0.7em 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="ativo">
+        <header>
+            <img src="images/PREFEITURA.png" alt="Logo da Prefeitura de Nova Lima" />
+        </header>
+
+        <main id="card">
+            <!-- Formulário 1 -->
+            <div id="form1">
+                <BR>
+                <h1 class="titulo">TESTE DE ACEITABILIDADE DA ALIMENTAÇÃO ESCOLAR - 2024</h1>
+                <br>
+                
+                <form id="formulario1" method="post">
+                    <label for="escola">QUAL É A SUA ESCOLA?</label>
+                    <select id="escola" name="ESCOLA" required>
+                        <option value="">Escolha sua escola</option>
+                        <option value="CEI CASSIO MAGNANI">CEI CASSIO MAGNANI</option>
+                        <option value="EM BENVINDA PINTO ROCHA">EM BENVINDA PINTO ROCHA</option>
+                        <option value="EM CESAR RODRIGUES">EM CESAR RODRIGUES</option>
+                        <option value="EM CRISTIANO MACHADO">EM CRISTIANO MACHADO</option>
+                        <option value="EM DALVA CIFUENTES">EM DALVA CIFUENTES</option>
+                        <option value="EM DAVID FINLAY">EM DAVID FINLAY</option>
+                        <option value="EM DONA ANTONIETA DIAS DE SOUZA">EM DONA ANTONIETA DIAS DE SOUZA</option>
+                        <option value="EM DULCE SANTOS JONES">EM DULCE SANTOS JONES</option>
+                        <option value="EM EMÍLIA DE LIMA">EM EMÍLIA DE LIMA</option>
+                        <option value="EM FLORIE WANDERLEY DIAS">EM FLORIE WANDERLEY DIAS</option>
+                        <option value="EM GEORGE CHALMERS">EM GEORGE CHALMERS</option>
+                        <option value="EM HAROLD JONES">EM HAROLD JONES</option>
+                        <option value="EM JOSÉ BRASIL DIAS">EM JOSÉ BRASIL DIAS</option>
+                        <option value="EM JOSÉ FRANCISCO DA SILVA">EM JOSÉ FRANCISCO DA SILVA</option>
+                        <option value="EM MARTHA DRUMMOND FONSECA">EM MARTHA DRUMMOND FONSECA</option>
+                        <option value="EM RUBEM COSTA LIMA">EM RUBEM COSTA LIMA</option>
+                        <option value="EM URCINO DO NASCIMENTO">EM URCINO DO NASCIMENTO</option>
+                        <option value="EM VERA WANDERLEY DIAS">EM VERA WANDERLEY DIAS</option>
+                        <option value="EM VICENTE ESTEVÃO DOS SANTOS">EM VICENTE ESTEVÃO DOS SANTOS</option>
+                    </select>
+
+                    <label for="ano">QUAL É O SEU ANO DE ENSINO?</label>
+                    <select id="ano" name="ANO_DE_ENSINO" required>
+                        <option value="">Escolha o seu ano de ensino</option>
+                        <option value="1º ANO">1º ANO</option>
+                        <option value="2º ANO">2º ANO</option>
+                        <option value="3º ANO">3º ANO</option>
+                        <option value="4º ANO">4º ANO</option>
+                        <option value="5º ANO">5º ANO</option>
+                        <option value="6º ANO">6º ANO</option>
+                        <option value="7º ANO">7º ANO</option>
+                        <option value="8º ANO">8º ANO</option>
+                        <option value="9º ANO">9º ANO</option>
+                    </select>
+
+                    <label for="data">QUAL É A DATA DE HOJE?</label>
+                    <input type="date" id="data" name="DATA" required>
+                    <button type="submit" class="enviar">Enviar</button>
+                </form>
+            </div>
+
+            <!-- Feedback -->
+            <div id="feedback-section">
+                
+                <figure>
+                    <img src="images/salada.jpg" alt="Salada de Frutas" />
+                    <figcaption>SALADA DE FRUTAS COM GRANOLA SEM AÇÚCAR</figcaption>
+                </figure>
+                <br>
+                <h2 >Marque a carinha que mais representa o que você acha da <b>ALIMENTAÇÃO ESCOLAR</b></h2>
+                <br>
+                <h2><b>Leve em consideração os alimentos servidos, o sabor, a textura/consistência e o visual das preparações.</b></h2>
+                <div id="notas">
+                    <div class="nota-container">
+                        <button type="button" class="nota" id="nota1" value="DETESTEI">
+                            <img src="images/1 (detestei).png" alt="">
+                        </button>
+                        <span class="nota-label">DETESTEI</span>
+                    </div>
+
+                    <div class="nota-container">
+                        <button type="button" class="nota" id="nota2" value="NÃO GOSTEI">
+                            <img src="images/2 (não gostei).png" alt="">
+                        </button>
+                        <span class="nota-label">NÃO GOSTEI</span>
+                    </div>
+
+                    <div class="nota-container">
+                        <button type="button" class="nota" id="nota3" value="INDIFERENTE">
+                            <img src="images/3 (indiferente).png" alt="">
+                        </button>
+                        <span class="nota-label">INDIFERENTE</span>
+                    </div>
+
+                    <div class="nota-container">
+                        <button type="button" class="nota" id="nota4" value="GOSTEI">
+                            <img src="images/4 (gostei).png" alt="">
+                        </button>
+                        <span class="nota-label">GOSTEI</span>
+                    </div>
+
+                    <div class="nota-container">
+                        <button type="button" class="nota" id="nota5" value="AMEI">
+                            <img src="images/5 (amei).png" alt="">
+                        </button>
+                        <span class="nota-label">AMEI</span>
+                    </div>
+                </div>
+                <br>
+                <h3 class="notaselecionada"><span id="resultado"></span></h3>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const feedbackSection = document.getElementById('feedback-section');
+            const form1 = document.getElementById('formulario1');
+
+            form1.addEventListener('submit', async (event) => {
+                event.preventDefault();
+
+                // Armazena os dados do formulário no localStorage
+                localStorage.setItem('escola', document.getElementById('escola').value);
+                localStorage.setItem('ano', document.getElementById('ano').value);
+                localStorage.setItem('data', document.getElementById('data').value);
+
+                // Mostra a seção de feedback
+                feedbackSection.style.display = 'flex';
+                form1.style.display = 'none';
+            });
+
+            const resultadoSpan = document.getElementById('resultado');
+
+            document.querySelectorAll('.nota').forEach(button => {
+                button.addEventListener('click', async () => {
+                    const feedbackValue = button.value;
+                    resultadoSpan.textContent = `Você selecionou: ${feedbackValue}`;
+
+                    // Obtém os dados dos formulários armazenados no localStorage
+                    const escola = localStorage.getItem('escola');
+                    const ano = localStorage.getItem('ano');
+                    const data = localStorage.getItem('data');
+
+                    // Adiciona um verificador para garantir que a variável feedbackValue tem um valor
+                    if (!feedbackValue) {
+                        alert("Por favor, selecione uma opção.");
+                        return;
+                    }
+
+                    const formData = new FormData();
+                    formData.append('ESCOLA', escola);
+                    formData.append('ANO_DE_ENSINO', ano);
+                    formData.append('DATA', data);
+                    formData.append('FEEDBACK', feedbackValue);
+
+                    try {
+                        await fetch('https://api.sheetmonkey.io/form/skPtRjcLHSfryBcTA2qUjq', {
+                            method: 'POST',
+                            body: formData
+                        });
+
+                        // Enviar dados combinados para o SurveyMonkey
+                        const combinedData = {
+                            "data": {
+                                "question_id_1": escola,
+                                "question_id_2": ano,
+                                "question_id_3": data,
+                                "question_id_4": feedbackValue
+                            }
+                        };
+
+                        const surveyMonkeyURL = 'https://api.surveymonkey.com/v3/surveys/YOUR_SURVEY_ID/responses';
+                        const accessToken = 'YOUR_ACCESS_TOKEN';
+
+                        await axios.post(surveyMonkeyURL, combinedData, {
+                            headers: {
+                                'Authorization': `Bearer ${accessToken}`,
+                                'Content-Type': 'application/json'
+                            }
+                        });
+
+                        console.log('Dados enviados com sucesso!');
+                        window.location.href = "./indexativado.html";
+                    } catch (error) {
+                        window.location.href = "./indexativado.html";
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
