@@ -1,4 +1,25 @@
 # Projeto Nutrição
+<h2 id="colab">🤝 Colaboradores do Projeto</h2>
+<table>
+  <tr>
+    <td align="center">
+      <a href="#">
+        <img src="https://github.com/user-attachments/assets/2bb97685-8584-4e4e-88db-51650e6ac599" width="100px;" alt="Fernanda Kipper Profile Picture"/><br>
+        <sub>
+          <b>Pedro Augusto</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="#">
+        <img src="https://github.com/user-attachments/assets/914c77e3-61aa-420b-a6f2-36149886983a" width="100px;" alt="Elon Musk Picture"/><br>
+        <sub>
+          <b>William Gabriel</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
 ## Descrição
 Este código HTML cria uma página web para um formulário de teste de aceitabilidade da alimentação escolar. O formulário coleta informações sobre a escola, o ano de ensino e a data atual. Após o envio do formulário, o usuário é direcionado para uma seção de feedback onde pode avaliar a alimentação escolar usando uma escala de satisfação com ícones representando diferentes níveis de aprovação.
 
