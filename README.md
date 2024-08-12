@@ -20,7 +20,8 @@
     </td>
   </tr>
 </table>
-## Descrição
+
+# Descrição
 Este código HTML cria uma página web para um formulário de teste de aceitabilidade da alimentação escolar. O formulário coleta informações sobre a escola, o ano de ensino e a data atual. Após o envio do formulário, o usuário é direcionado para uma seção de feedback onde pode avaliar a alimentação escolar usando uma escala de satisfação com ícones representando diferentes níveis de aprovação.
 
 ## Estrutura do Código
